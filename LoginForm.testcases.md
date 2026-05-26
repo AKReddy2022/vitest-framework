@@ -1,128 +1,148 @@
-# LoginForm Test Cases
+# LoginForm Test Cases (Total: 11)
 
 ---
 
-# 1. Rendering Test Cases
+## 1. Rendering Test Cases
 
-- Login form renders
-- Login heading renders
-- Email input renders
-- Password input renders
-- Login button renders
-- Cancel button renders
+```js
+test("should render login form elements")
+```
+
+- Login heading
+- Email input
+- Password input
+- Login button
+- Cancel button
 
 ---
 
-# 2. Initial State Test Cases
+## 2. Initial State Test Cases
+
+```js
+test("should render initial form state correctly")
+```
 
 - Login button disabled initially
-- Email input empty initially
-- Password input empty initially
-- Success message hidden initially
-- Error message hidden initially
+- Empty email input
+- Empty password input
+- Success message hidden
+- Error message hidden
 
 ---
 
-# 3. Input Interaction Test Cases
+## 3. Input Interaction Test Cases
 
-- User can type email
-- User can type password
-- Email input value updates correctly
-- Password input value updates correctly
-- User can clear email input
-- User can clear password input
+```js
+test("should handle input interactions correctly")
+```
 
----
-
-# 4. Button Enable/Disable Logic
-
-- Login button enabled after email and password entered
-- Login button disabled if email empty
-- Login button disabled if password empty
-- Login button disabled again after clearing inputs
-- Login button disabled after cancel click
+- Type email
+- Type password
+- Update input values
+- Clear inputs
 
 ---
 
-# 5. Login Click Test Cases
+## 4. Login Button Logic Test Cases
 
-- Login button click works
-- Success message shown after login
-- Login prevented when button disabled
-- Multiple clicks handled properly
-- Enter key triggers login
+```js
+test("should handle login button state correctly")
+```
 
----
-
-# 6. Cancel Button Test Cases
-
-- Cancel button click works
-- Cancel clears email input
-- Cancel clears password input
-- Cancel removes success message
-- Cancel disables login button again
-- Cancel works after successful login
+- Enable after valid inputs
+- Disable when fields empty
+- Disable after clearing form
 
 ---
 
-# 7. Validation Test Cases
+## 5. Login Action Test Cases
+
+```js
+test("should handle login actions correctly")
+```
+
+- Login button click
+- Success message display
+- Prevent invalid login
+- Enter key login
+
+---
+
+## 6. Cancel Action Test Cases
+
+```js
+test("should handle cancel actions correctly")
+```
+
+- Cancel button click
+- Reset form
+- Clear success message
+- Disable login button again
+
+---
+
+## 7. Validation Test Cases
+
+```js
+test("should handle form validations correctly")
+```
 
 - Email required validation
 - Password required validation
-- Invalid email format validation
-- Password minimum length validation
-- Validation messages hidden initially
-- Validation removed after correcting input
-- Spaces-only input validation
+- Invalid email validation
+- Password length validation
+- Remove validation after correction
 
 ---
 
-# 8. Success/Error Message Test Cases
+## 8. Success/Error State Test Cases
 
-- Success message appears after login
-- Error message appears on invalid login
-- Success message hidden initially
-- Error message hidden initially
-- Error message removed after correction
+```js
+test("should handle success and error states correctly")
+```
 
----
-
-# 9. Async/API Test Cases
-
-- API called on login
-- Loading spinner shown during API call
-- Login success API response handled
-- Login failure API response handled
-- API error handled properly
-- Login button disabled during loading
+- Success message display
+- Error message display
+- Hide messages initially
+- Remove error after correction
 
 ---
 
-# 10. Accessibility Test Cases
+## 9. Async/API Test Cases
 
-- Buttons accessible by role
-- Inputs accessible properly
-- Keyboard navigation works
-- Focus handling works
-- Proper labels associated with inputs
+```js
+test("should handle login API flows correctly")
+```
+
+- Login API call
+- Loading state
+- Success response
+- Failure response
+- API error handling
 
 ---
 
-# 11. Edge Cases
+## 10. Edge Case Test Cases
+
+```js
+test("should handle login form edge cases correctly")
+```
 
 - Empty spaces input
-- Very large input values
-- Special characters in password
-- Rapid button clicks
-- Paste values into inputs
+- Special characters
+- Rapid multiple clicks
+- Large input values
 
 ---
 
-# 12. Advanced Test Cases
+## 11. Accessibility Test Cases
 
-- Mock login callback
-- Mock cancel callback
-- LocalStorage/sessionStorage handling
-- Redirect after successful login
-- Timer/debounce handling
-- Form reset after success
+```js
+test("should support accessibility features correctly")
+```
+
+- Access buttons by role
+- Keyboard navigation
+- Proper focus handling
+- Input label association
+```
