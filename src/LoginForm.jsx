@@ -18,7 +18,6 @@ function LoginForm() {
     return (
         <div>
             <h1>Login</h1>
-
             <input
                 type="text"
                 placeholder="Enter Email"
