@@ -1,23 +1,44 @@
 import { useState } from "react";
 
 function LoginForm() {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
     const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
 
     const handleLogin = () => {
-        setMessage("Login Successful");
+
+        if (
+            email === "admin@gmail.com" &&
+            password === "123456"
+        ) {
+
+            setMessage("Login Successful");
+            setError("");
+
+        } else {
+
+            setError("Invalid Username or Password");
+            setMessage("");
+        }
     };
 
     const handleCancel = () => {
+
         setEmail("");
         setPassword("");
+
         setMessage("");
+        setError("");
     };
 
     return (
         <div>
+
             <h1>Login</h1>
+
             <input
                 type="text"
                 placeholder="Enter Email"
@@ -42,7 +63,11 @@ function LoginForm() {
             <button onClick={handleCancel}>
                 Cancel
             </button>
-            {message && <p>{message}</p>}
+
+            {message && <p id="success-message">{message}</p>}
+
+            {error && <p id="error-message">{error}</p>}
+
         </div>
     );
 }

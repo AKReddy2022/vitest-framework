@@ -8,17 +8,22 @@
 test("should render login form elements correctly")
 ```
 
-- Login heading exists
-- Email input exists
-- Email input empty initially
-- Password input exists
-- Password input empty initially
-- Login button exists
-- Login button disabled initially
-- Cancel button exists
-- Cancel button enabled initially
-- Success message hidden initially
-- Error message hidden initially
+### Purpose
+Verify that all required UI elements are rendered correctly when the component loads for the first time.
+
+### What to Validate
+
+- Login heading should be visible
+- Email input should exist
+- Email input value should be empty initially
+- Password input should exist
+- Password input value should be empty initially
+- Login button should exist
+- Login button should be disabled initially
+- Cancel button should exist
+- Cancel button should be enabled initially
+- Success message should NOT be visible initially
+- Error message should NOT be visible initially
 
 ---
 
@@ -28,12 +33,18 @@ test("should render login form elements correctly")
 test("should handle input interactions correctly")
 ```
 
-- Type email
-- Type password
-- Update email value
-- Update password value
-- Clear email input
-- Clear password input
+### Purpose
+Verify that users can interact with input fields correctly.
+
+### What to Validate
+
+- User can type email into email input
+- User can type password into password input
+- Email input value updates correctly after typing
+- Password input value updates correctly after typing
+- User can clear email input
+- User can clear password input
+- Cleared inputs should become empty again
 
 ---
 
@@ -43,11 +54,16 @@ test("should handle input interactions correctly")
 test("should handle login button state correctly")
 ```
 
-- Enable after valid inputs
-- Disable when email empty
-- Disable when password empty
-- Disable after clearing form
-- Disable after cancel click
+### Purpose
+Verify login button enable/disable behavior based on form state.
+
+### What to Validate
+
+- Login button should enable when valid email and password are entered
+- Login button should disable when email is empty
+- Login button should disable when password is empty
+- Login button should disable after clearing inputs
+- Login button should disable again after cancel action
 
 ---
 
@@ -57,11 +73,17 @@ test("should handle login button state correctly")
 test("should handle login actions correctly")
 ```
 
-- Login button click
-- Success message display
-- Prevent login when disabled
-- Enter key login
-- Prevent multiple submissions
+### Purpose
+Verify login-related user actions and behaviors.
+
+### What to Validate
+
+- Login button click should work correctly
+- Login action should trigger only when form is valid
+- Success message should appear after successful login
+- Login should NOT happen when button is disabled
+- Pressing Enter key should trigger login
+- Multiple rapid clicks should not create duplicate submissions
 
 ---
 
@@ -71,11 +93,17 @@ test("should handle login actions correctly")
 test("should handle cancel actions correctly")
 ```
 
-- Cancel button click
-- Reset form
-- Clear success message
-- Clear error message
-- Disable login button again
+### Purpose
+Verify cancel/reset functionality.
+
+### What to Validate
+
+- Cancel button click should work correctly
+- Email input should reset after cancel
+- Password input should reset after cancel
+- Success message should clear after cancel
+- Error message should clear after cancel
+- Login button should become disabled again after reset
 
 ---
 
@@ -85,13 +113,18 @@ test("should handle cancel actions correctly")
 test("should handle form validations correctly")
 ```
 
-- Email required validation
-- Password required validation
-- Invalid email validation
-- Password minimum length validation
-- Remove validation after correction
-- Spaces-only validation
-- Trim input spaces before submit
+### Purpose
+Verify form validation rules and validation message behavior.
+
+### What to Validate
+
+- Validation message should appear when email is empty
+- Validation message should appear when password is empty
+- Invalid email format should show error message
+- Password minimum length validation should work
+- Validation messages should disappear after correcting input
+- Spaces-only input should be treated as invalid
+- Input values should be trimmed before submit
 
 ---
 
@@ -101,10 +134,16 @@ test("should handle form validations correctly")
 test("should handle success and error states correctly")
 ```
 
-- Success message display
-- Error message display
-- Remove error after correction
-- Hide messages initially
+### Purpose
+Verify success and error UI states.
+
+### What to Validate
+
+- Success message should appear after successful login
+- Error message should appear after failed login
+- Success message should hide initially
+- Error message should hide initially
+- Error message should disappear after correction/retry
 
 ---
 
@@ -114,12 +153,17 @@ test("should handle success and error states correctly")
 test("should handle login API flows correctly")
 ```
 
-- Login API call
-- Loading state
-- Disable login during loading
-- Success API response
-- Failure API response
-- API error handling
+### Purpose
+Verify async login/API behaviors.
+
+### What to Validate
+
+- Login API should be called on submit
+- Loading state/spinner should appear during API request
+- Login button should disable while API request is in progress
+- Successful API response should show success state
+- Failed API response should show error state
+- API/network errors should be handled properly
 
 ---
 
@@ -129,10 +173,16 @@ test("should handle login API flows correctly")
 test("should handle login form edge cases correctly")
 ```
 
-- Empty spaces input
-- Special characters
-- Rapid multiple clicks
-- Large input values
+### Purpose
+Verify unusual or unexpected user behaviors.
+
+### What to Validate
+
+- Empty spaces-only input handling
+- Special characters handling
+- Large input values handling
+- Rapid multiple clicks handling
+- Extremely fast typing behavior
 
 ---
 
@@ -142,8 +192,15 @@ test("should handle login form edge cases correctly")
 test("should support accessibility features correctly")
 ```
 
-- Access buttons by role
-- Keyboard navigation
-- Proper focus handling
-- Input label association
+### Purpose
+Verify accessibility and keyboard usability.
+
+### What to Validate
+
+- Buttons should be accessible using roles
+- Inputs should be accessible properly
+- Keyboard navigation should work correctly
+- Focus handling should work properly
+- Labels should be correctly associated with inputs
+- Screen readers should identify inputs/buttons properly
 ```
