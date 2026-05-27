@@ -8,7 +8,14 @@ function LoginForm() {
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const handleLogin = () => {
+
+        // Prevent multiple rapid clicks
+        if (isSubmitting) return;
+
+        setIsSubmitting(true);
 
         if (
             email === "admin@gmail.com" &&
@@ -23,6 +30,10 @@ function LoginForm() {
             setError("Invalid Username or Password");
             setMessage("");
         }
+
+        setTimeout(() => {
+            setIsSubmitting(false);
+        }, 1000);
     };
 
     const handleCancel = () => {
@@ -32,6 +43,21 @@ function LoginForm() {
 
         setMessage("");
         setError("");
+
+        setIsSubmitting(false);
+    };
+
+    const handleKeyDown = (e) => {
+
+        if (
+            e.key === "Enter" &&
+            email &&
+            password &&
+            !isSubmitting
+        ) {
+
+            handleLogin();
+        }
     };
 
     return (
@@ -44,6 +70,7 @@ function LoginForm() {
                 placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
 
             <input
@@ -51,22 +78,35 @@ function LoginForm() {
                 placeholder="Enter Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
 
             <button
-                disabled={!email || !password}
+                disabled={
+                    !email ||
+                    !password ||
+                    isSubmitting
+                }
                 onClick={handleLogin}
             >
-                Login
+                {isSubmitting ? "Loading..." : "Login"}
             </button>
 
             <button onClick={handleCancel}>
                 Cancel
             </button>
 
-            {message && <p id="success-message">{message}</p>}
+            {message && (
+                <p data-testid="success-message">
+                    {message}
+                </p>
+            )}
 
-            {error && <p id="error-message">{error}</p>}
+            {error && (
+                <p data-testid="error-message">
+                    {error}
+                </p>
+            )}
 
         </div>
     );
